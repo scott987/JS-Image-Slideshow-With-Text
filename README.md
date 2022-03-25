@@ -1,10 +1,11 @@
-# JS Image Slideshow
+# JS Image Slideshow With Text
 
-Using JavaScript to add image slideshows onto the webpages. This has been built for the slideshows on [the University of Southampton Electronics and Computer Science Society website](<https://society.ecs.soton.ac.uk>), and the style comes with the website's theme colour.
+Using JavaScript to add image slideshows onto the webpages.
+The slideshow has been built by [JS Image Slideshow](https://github.com/allc/JS-Image-Slideshow) but now with the text on it !
 
 ## Demo
 
-[JS Image Slideshow Demo](https://allc.github.io/JS-Image-Slideshow/demo/)
+[JS Image Slideshow Demo](https://scott987.github.io/JS-Image-Slideshow-With-Text/demo/)
 
 ## Setup
 
@@ -21,10 +22,15 @@ In the application code, create a slideshow like this:
 
 ```JavaScript
 var imagePaths = ['images/0.png', 'images/1.png', 'images/2.png'];
+var text=['test', 'testtest', 'testtest']
 var slideshowOptions = {
     interval: 3000,
     transition: 'fadeIn',
-    background: true
+    control: false,
+    background: true,
+    showtext: true,
+    textcontainer: document.getElementById('text'),
+    text: text
 };
 new Slideshow(document.getElementById('slideshow-container'), imagePaths, slideshowOptions);
 ```
@@ -38,14 +44,21 @@ new Slideshow(document.getElementById('slideshow-container'), imagePaths, slides
 
 `background`: if the image container has black background with rounded corners, `true` or `false`, default `false`
 
+`showtext`: if show text, `true` or `false`, default `false`
+
+`textcontainer`: where to put text, need `showtext` option
+
+`text`: the text list to show, need `showtext` option
+
 ## Requirements
 
-JS Image Slideshow has zero dependences.
+JS Image Slideshow With Text has zero dependences.
 
 ## Credits
 
-Credits to Harry and Rayna.
+Slideshow Credits to Harry and Rayna.
+Text funtion Credits to Scott.
 
 ## License
 
-Licensed under the [MIT](https://github.com/allc/JS-Image-Slideshow/blob/master/LICENSE) license.
+Licensed under the [MIT](https://github.com/scott987/JS-Image-Slideshow-With-Text/blob/master/LICENSE) license.
