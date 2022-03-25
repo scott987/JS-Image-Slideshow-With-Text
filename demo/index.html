@@ -7,22 +7,36 @@
     <link rel="stylesheet" href="../css/slideshow.css">
     <script src="../js/slideshow.js"></script>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@500&display=swap');
         #demo {
-            width: 640px;
-            height: 480px;
-            max-width: 100%;
+            width: 99vw;
+            height: 98vh;
+        }
+        #text {
+            position: absolute;
+            z-index: 10;
+            bottom: 2vh;
+            right: 1vw;
+            font-size:2.5em;
+            color: white;
+            font-family: 'Noto Sans TC', sans-serif;
         }
     </style>
 </head>
 <body>
-<p><a href="https://github.com/allc/JS-Image-Slideshow">JS Image Slideshow</a> Demo</p>
 <div id="demo"></div>
+<div id="text"></div>
 <script>
     var imagePaths = ['images/brighton.jpg', 'images/new_forest.jpg', 'images/zhangye_national_geopark.jpg'];
+    var text=['test', 'testtest', 'testtest']
     var slideshowOptions = {
         interval: 3000,
         transition: 'fadeIn',
-        background: true
+        control: false,
+        background: true,
+        showtext: true,
+        textcontainer: document.getElementById('text'),
+        text: text
     };
     new Slideshow(document.getElementById('demo'), imagePaths, slideshowOptions);
 </script>

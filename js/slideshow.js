@@ -81,6 +81,35 @@ function Slideshow(container, imagesPaths, options) {
         this.container.appendChild(this.controlContainer);
     }
 
+    //text
+    if(options.showtext)
+    {
+        this.textContainer = options.textcontainer;
+        this.text=[];
+        for (var i = 0; i < imagesPaths.length; i++) {
+            var content = document.createElement('div');
+            if(options.text[i])content.innerText = options.text[i];
+            else content.innerText = "";
+            content.classList.add('slideshowHiddenImage');
+
+            // set transition
+            if (options && options.transition) {
+                switch (options.transition) {
+                    case 'fadeIn':
+                        content.classList.add('slideshowImageFadeIn');
+                        break;
+                    default:
+                        break;
+                }
+            }
+            this.textContainer.appendChild(content);
+            this.text.push(content);
+            console.log(content)
+        }
+        console.log(this.text)
+
+    }
+
     // start
     this.updateImage(this.currentIndex);
     this.startSlideshow();
@@ -90,8 +119,12 @@ Slideshow.prototype.updateImage = function(nextIndex, lastIndex) {
     'use strict';
     if (typeof lastIndex !== 'undefined') {
         this.images[lastIndex].classList.add("slideshowHiddenImage");
+        if (this.text) {
+            this.text[lastIndex].classList.add("slideshowHiddenImage");
+        }
     }
     this.images[nextIndex].classList.remove("slideshowHiddenImage");
+    this.text[nextIndex].classList.remove("slideshowHiddenImage");
 }
 
 Slideshow.prototype.startSlideshow = function() {
